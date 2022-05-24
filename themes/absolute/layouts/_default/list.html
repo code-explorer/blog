@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="container">
+  <div class="posts">
+    <h2>Posts</h2>
+    {{ range .Site.RegularPages }}
+    <div class="preview row">
+      <img
+        class="u-max-full-width six columns"
+        src="{{ .Params.cover }}"
+        alt="{{ .Title }} Cover Image"
+      />
+      <div class="six columns">
+        <h4>{{ .Title }}</h4>
+        {{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes
+        {{ end }} read
+        <br />
+        {{ .Params.description }}
+        <br />
+        <a href="{{ .Permalink }}">Read more</a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
