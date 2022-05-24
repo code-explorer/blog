@@ -6,9 +6,11 @@ draft: false
 cover: "/images/test-image.jpg"
 ---
 
-- Abcde
-- Fghikj
-- Lmnopq
+This is a test post.
+
+- Some
+- Bullet
+- Points
 
 ```python
 x = int(input())
