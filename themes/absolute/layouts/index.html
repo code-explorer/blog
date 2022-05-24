@@ -6,7 +6,7 @@
     <div class="preview row">
       <img
         class="u-max-full-width six columns"
-        src="./{{ .Params.cover }}"
+        src="{{ .Site.BaseURL }}/{{ .Params.cover }}"
         alt="{{ .Title }} Cover Image"
       />
       <div class="six columns">
@@ -21,7 +21,7 @@
     </div>
     {{ end }}
     <br />
-    <a class="button u-full-width" href="./posts">View all</a>
+    <a class="button u-full-width" href="{{ .Site.BaseURL }}/posts">View all</a>
   </div>
 </div>
 {{ end }}
