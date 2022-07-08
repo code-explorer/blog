@@ -3,10 +3,11 @@ title: "Binary Classification Using Logistic Regression"
 description: "Binary Image Classification from scratch using Logistic Regression"
 date: 2022-07-08T13:05:42+05:30
 draft: false
-cover: "/images/BinaryClassification.jpeg"
+cover: "/posts/binary-classification/BinaryClassification.jpeg"
 ---
 
-<img src='/blog/images/BinaryClassification.jpeg' class='u-full-width'/>
+<!-- <img src='/blog/images/BinaryClassification.jpeg' class='u-full-width'/> -->
+{{< post-image src="BinaryClassification.jpeg">}}
 
 ### Classification
 
@@ -23,3 +24,4 @@ The most popular algorithms to perform binary classification are:
 - K-Nearest Neighbors
 
 ### How does machine learning work?
+

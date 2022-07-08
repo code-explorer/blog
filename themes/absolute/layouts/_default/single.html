@@ -3,10 +3,36 @@
   <h1 class="title">{{ .Title }}</h1>
   <div class="title">
     <p>
-      <time>{{ .PublishDate.Format "January 2, 2006" }}</time> | 
+      <time>{{ .PublishDate.Format "January 2, 2006" }}</time> |
       {{.ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{end }} read
     </p>
   </div>
   <div class="content">{{ .Content }}</div>
+  <script type="text/javascript">
+    window.onload = function () {
+
+      var placeholder = document.querySelectorAll('.placeholder');
+
+      placeholder.forEach(element => {
+        // Load placeholder image
+        var smallImage = element.getElementsByClassName('img-small')[0];
+        var img = new Image();
+        img.src = smallImage.getAttribute('src')
+        img.onload = function () {
+          smallImage.classList.add('loaded')
+        }
+
+        // Load large image
+        var largeImage = new Image();
+        console.log(element);
+        largeImage.srcset = element.getAttribute('data-large');
+        largeImage.src = element.getAttribute('data-large');
+        largeImage.onload = function () {
+          largeImage.classList.add('loaded');
+        }
+        element.appendChild(largeImage);
+      })
+    };
+  </script>
 </div>
 {{ end }}
