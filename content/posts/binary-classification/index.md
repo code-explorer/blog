@@ -3,6 +3,7 @@ title: "Binary Classification Using Logistic Regression"
 description: "Binary Image Classification from scratch using Logistic Regression"
 date: 2022-07-08T13:05:42+05:30
 draft: false
+math: true
 cover: "/posts/binary-classification/BinaryClassification.jpeg"
 ---
 

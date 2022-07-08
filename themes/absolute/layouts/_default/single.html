@@ -24,7 +24,6 @@
 
         // Load large image
         var largeImage = new Image();
-        console.log(element);
         largeImage.srcset = element.getAttribute('data-large');
         largeImage.src = element.getAttribute('data-large');
         largeImage.onload = function () {

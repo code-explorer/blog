@@ -24,4 +24,14 @@
     <a class="button u-full-width" href="posts">View all</a>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+          delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+          ]
+      });
+  });
+  </script>
 {{ end }}
