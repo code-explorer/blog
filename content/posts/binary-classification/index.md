@@ -7,7 +7,6 @@ math: true
 cover: "/posts/binary-classification/BinaryClassification.jpeg"
 ---
 
-<!-- <img src='/blog/images/BinaryClassification.jpeg' class='u-full-width'/> -->
 {{< post-image src="BinaryClassification.jpeg">}}
 
 ### Classification
@@ -23,6 +22,4 @@ The most popular algorithms to perform binary classification are:
 - Random Forests
 - Naive Bayes
 - K-Nearest Neighbors
-
-### How does machine learning work?
 
