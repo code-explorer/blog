@@ -55,6 +55,12 @@ We can break down the training process into the following steps:
 
 To train our model we repeat the above steps until we are satisfied with the model. So lets get started!
 
+#### Linear Regression
+
+The model we are training is a **Linear Regression** model. A linear regression model tries to find a straight line that best fits the data.
+
+> The same principles used to create a linear regression model also carry over to other supervised machine learning models.
+
 #### Initializing the parameters
 
 We start by initializing the parameters ( m and c ) of the model.
@@ -98,4 +104,59 @@ def cost(y, y_hat):
 
 #### Updating the parameters
 
+During each iteration of the training process, we will update each parameter like so:
 
+$$p = p - LearningRate * \frac{\partial (cost(y, \hat y))}{\partial p} $$
+
+> where p is the parameter and the learning rate controls the rate at which the parameters are updated.
+
+```python
+def gradient_descent(y, y_hat, m, c, learning_rate):
+    m = m - learning_rate * np.sum((y - y_hat) * x) / len(y)
+    c = c - learning_rate * np.sum((y - y_hat)) / len(y)
+    return m, c
+```
+
+#### Bringing it all together
+
+Now we can bring it all together into a single class like so:
+
+```python
+class Regression:
+    def __init__(self, x, y):
+        self.m = 0
+        self.c = 0
+        self.x = x
+        self.y = y
+
+    def predict(self, x):
+        return self.m * x + self.c
+
+    def cost(self):
+        y_hat = self.predict(self.x)
+        return np.sum((y_hat - self.y) ** 2) / len(self.y)
+
+    def gradient_descent(self, learning_rate):
+        y_hat = self.predict(self.x)
+        dm = (-2 / len(self.y)) * np.sum((self.y - y_hat) * self.x)
+        dc = (-2 / len(self.y)) * np.sum((self.y - y_hat))
+        self.m = self.m - learning_rate * dm
+        self.c = self.c - learning_rate * dc
+        return self.cost()
+
+    def train(self, learning_rate, iterations):
+        for i in range(iterations):
+            self.gradient_descent(learning_rate)
+        return self.m, self.c
+```
+
+And finally we can train it by specifying the learning rate and the number of iterations.
+
+```python
+model = Regression(x, y)
+model.train(0.0001, 100)
+```
+
+<image src="height-shoe_size-regression.jpg" class="u-full-width">
+
+There you have it! We have created a regression model that can predict the shoe size based on the height and vice versa.
