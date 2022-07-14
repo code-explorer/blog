@@ -19,14 +19,19 @@ To further understand how a machine learning model is created let us create a ve
 
 ## Predicting shoe size based on height
 
-|
-| - | - | - | - | - | - | - | - |
-|Input (Height in inches)|56|60|63|64|67|68|70|
-|Output (Shoe Size)|7.31|8.25|9.15|9.18|10|10.02|10.81|
+| Input (Height in inches) | Output (Shoe Size) |
+|-|-|
+|56|7.31|
+|60|8.25|
+|63|9.15|
+|64|9.18|
+|67|10|
+|68|10.02|
+|70|10.81|
 
 If we visualize this data we can see that the relationship between the height and the shoe size is linear.
 
-<image src="height-shoe_size.jpg" class="u-full-width">
+<iframe height="700" class="u-full-width" style="border:none;" src="Height_vs_Shoe_Size.html"></iframe>
 
 So, we can use the equation of a line to create the model:
 
@@ -154,9 +159,24 @@ And finally we can train it by specifying the learning rate and the number of it
 
 ```python
 model = Regression(x, y)
-model.train(0.0001, 100)
+model.train(1e-5, 1000)
 ```
 
-<image src="height-shoe_size-regression.jpg" class="u-full-width">
+<iframe height="700" class="u-full-width" style="border:none;" src="Height_vs_Shoe_Size_No_Normalization.html"></iframe>
 
 There you have it! We have created a regression model that can predict the shoe size based on the height and vice versa.
+
+Now we can take this one step further by normalizing the data so that the input lies between 0 and 1.
+
+We can perform normalization and retrain our model like this:
+
+```python
+normalized_x = (x - x.min()) / (x.max() - x.min())
+
+model = Regression(normalized_x, y)
+model.train(1e-2, 5000)
+```
+
+This gives us a much better model.
+
+<iframe height="700" class="u-full-width" style="border:none;" src="Height_vs_Shoe_Size_After_Regression.html"></iframe>
